@@ -394,6 +394,7 @@ const topBtn = document.querySelectorAll(".to_top");
 const page = document.querySelector(".page");
 
 
+//Scroll to top
 let t; 
 function scrolltop() { 
     let top = Math.max(document.body.scrollTop, page.scrollTop); 
@@ -406,15 +407,23 @@ function scrolltop() {
     return false; 
 }
 
-
+// Scroll top click
 topBtn.forEach(item => {
     item.addEventListener("click", (e) => {
         e.preventDefault();
         scrolltop();
     });
 });
+// Scroll top touch
+topBtn.forEach(item => {
+    item.addEventListener("touchstart", (e) => {
+        e.preventDefault();
+        scrolltop();
+    });
+});
 
 
+//Scroll to Elements
 let scrollToIdTimerId;
 function scrollToId(id) {
     scrollToIdFunc();
@@ -448,7 +457,7 @@ function scrollToId(id) {
         }
     }  
 }
-
+//Scroll click
 const navElements = document.querySelectorAll("[data-nav]");
 navElements.forEach(elem => {
     elem.addEventListener("click", (e) => {
@@ -458,13 +467,14 @@ navElements.forEach(elem => {
     });
 });
 
-// navElements.forEach(elem => {
-//     elem.addEventListener("touch", (e) => {
-//         e.preventDefault();
-//         const idToScrollTo = "#" + e.target.getAttribute("data-nav");
-//         scrollToId(idToScrollTo);
-//     });
-// });
+//Scroll touch
+navElements.forEach(elem => {
+    elem.addEventListener("touchstart", (e) => {
+        e.preventDefault();
+        const idToScrollTo = "#" + e.target.getAttribute("data-nav");
+        scrollToId(idToScrollTo);
+    });
+});
 
 
 // Slider and Open / Close Photo
@@ -506,6 +516,7 @@ function photos() {
             photoPopup.style.overflow = "hidden";
             pathBPh = event.target.getAttribute("data-photo");
             bigPhoto.setAttribute("src", pathBPh);
+            bigPhoto.classList.add("fadeOne");
 
             slides.forEach((item, index) => {
             if (pathBPh == item.getAttribute("data-photo")){
@@ -518,6 +529,7 @@ function photos() {
         if (event.target && event.target.matches("div.popup_photo")){
             photoPopup.style.display = "none";
             photoPopup.style.overflow = "";
+            bigPhoto.classList.remove("fadeTwo");
         }
     });
 
@@ -525,19 +537,23 @@ function photos() {
     closeX.addEventListener("click", () =>{
         photoPopup.style.display = "none";
         photoPopup.style.overflow = "";
+        bigPhoto.classList.remove("fadeTwo");
     });
     //___________________________
 
     //Slider
     next.addEventListener("click", (event)=>{
-        console.log(slideIndex);
         if (slideIndex+1 < slides.length){
             bigPhoto.setAttribute("src", slides[slideIndex+1].getAttribute("data-photo"));
             slideIndex++;
-            console.log(slideIndex);
+            bigPhoto.classList.toggle("fadeOne");
+            bigPhoto.classList.toggle("fadeTwo");
+
         } else {
             slideIndex = 0;
             bigPhoto.setAttribute("src", slides[slideIndex].getAttribute("data-photo"));
+            bigPhoto.classList.toggle("fadeOne");
+            bigPhoto.classList.toggle("fadeTwo");
         }
     });
 
@@ -545,9 +561,13 @@ function photos() {
         if (slideIndex > 0){
             bigPhoto.setAttribute("src", slides[slideIndex-1].getAttribute("data-photo"));
             slideIndex--;
+            bigPhoto.classList.toggle("fadeOne");
+            bigPhoto.classList.toggle("fadeTwo");
         } else {
             slideIndex = slides.length - 1;
             bigPhoto.setAttribute("src", slides[slideIndex].getAttribute("data-photo"));
+            bigPhoto.classList.toggle("fadeOne");
+            bigPhoto.classList.toggle("fadeTwo");
         }
     });
 

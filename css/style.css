@@ -921,6 +921,56 @@ div.img_before:not(hover) img.footer_second_icon {
           transform: rotate(-45deg);
 }
 
+.fadeOne {
+  -webkit-animation: fadeOne 1s ease;
+          animation: fadeOne 1s ease;
+}
+
+@-webkit-keyframes fadeOne {
+  from {
+    opacity: 0.2;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOne {
+  from {
+    opacity: 0.2;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.fadeTwo {
+  -webkit-animation: fadeTwo 1s ease;
+          animation: fadeTwo 1s ease;
+}
+
+@-webkit-keyframes fadeTwo {
+  from {
+    opacity: 0.2;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeTwo {
+  from {
+    opacity: 0.2;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
 .static_bg_photo {
   position: relative;
   -webkit-box-flex: 1;
