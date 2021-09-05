@@ -808,7 +808,7 @@ div.img_before:not(hover) img.footer_second_icon {
 }
 
 .next {
-  width: 50vw;
+  width: 50%;
   height: 100%;
   background-color: black;
   opacity: 0.7;
@@ -845,7 +845,7 @@ div.img_before:not(hover) img.footer_second_icon {
 }
 
 .prev {
-  width: 50vw;
+  width: 50%;
   height: 100%;
   background-color: black;
   opacity: 0.7;
@@ -882,40 +882,35 @@ div.img_before:not(hover) img.footer_second_icon {
 }
 
 .closeX {
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   position: absolute;
   top: 0px;
-  right: -40px;
+  right: -45px;
   z-index: 250;
   cursor: pointer;
 }
 
-.closeX::before {
-  content: "";
-  height: 2px;
-  width: 100%;
-  background-color: #fff;
-  position: absolute;
-  top: 10px;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  -webkit-transform: rotate(45deg);
-      -ms-transform: rotate(45deg);
-          transform: rotate(45deg);
-}
-
+.closeX::before,
 .closeX::after {
   content: "";
   height: 2px;
   width: 100%;
   background-color: #fff;
   position: absolute;
-  top: 10px;
+  top: 14px;
   bottom: 0;
   left: 0;
   right: 0;
+}
+
+.closeX::before {
+  -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.closeX::after {
   -webkit-transform: rotate(-45deg);
       -ms-transform: rotate(-45deg);
           transform: rotate(-45deg);

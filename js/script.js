@@ -414,13 +414,13 @@ topBtn.forEach(item => {
         scrolltop();
     });
 });
-// Scroll top touch
-topBtn.forEach(item => {
-    item.addEventListener("touchstart", (e) => {
-        e.preventDefault();
-        scrolltop();
-    });
-});
+// // Scroll top touch
+// topBtn.forEach(item => {
+//     item.addEventListener("touchstart", (e) => {
+//         e.preventDefault();
+//         scrolltop();
+//     });
+// });
 
 
 //Scroll to Elements
@@ -467,14 +467,15 @@ navElements.forEach(elem => {
     });
 });
 
-//Scroll touch
-navElements.forEach(elem => {
-    elem.addEventListener("touchstart", (e) => {
-        e.preventDefault();
-        const idToScrollTo = "#" + e.target.getAttribute("data-nav");
-        scrollToId(idToScrollTo);
-    });
-});
+// //Scroll touch
+// navElements.forEach(elem => {
+//     elem.addEventListener("touchstart", (e) => {
+//         e.preventDefault();
+//         e.stopPropagation();
+//         const idToScrollTo = "#" + e.target.getAttribute("data-nav");
+//         scrollToId(idToScrollTo);
+//     });
+// });
 
 
 // Slider and Open / Close Photo
