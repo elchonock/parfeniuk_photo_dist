@@ -429,14 +429,14 @@ function scrollToId(id) {
     scrollToIdFunc();
     function scrollToIdFunc() {
         if (document.documentElement.scrollHeight <= 1040) {
-            const point = document.querySelector(id).getBoundingClientRect().top;
+            const point = document.querySelector(id).getBoundingClientRect().top;            
             if (point > 800) { 
                 page.scrollTop = Math.floor((page.scrollTop + 10) * 1.25);
                 scrollToIdTimerId = setTimeout(scrollToIdFunc, 20); 
     
-            } else if(point > 0 && point < 800){
-                page.scrollTop = Math.floor(page.scrollTop + 20);
-                scrollToIdTimerId = setTimeout(scrollToIdFunc, 10); 
+            } else if(point > 1 && point < 800){
+                page.scrollTop = Math.floor(page.scrollTop + 75);
+                scrollToIdTimerId = setTimeout(scrollToIdFunc, 30); 
     
             } else { 
                 clearTimeout(scrollToIdTimerId); 
@@ -596,15 +596,32 @@ page.addEventListener("scroll", addBloomToBgPhoto);
 const contentItems = document.querySelectorAll(".content_row_item");
 const content = document.querySelector(".content_row");
 
-function addBloomToContent() {
+function addFadeToContent() {
     if (Math.floor(content.getBoundingClientRect().top - document.documentElement.clientHeight <= -100)) {
-        contentItems.forEach( i => {
-            i.classList.add("bloomContent");
+        // contentItems.forEach( i => {
+        //     i.classList.add("fadeThree");  
+        // });
+        contentItems.forEach(function(i, index){
+            setTimeout(function(){
+                i.classList.add("fadeOne");
+                                
+            }, index*75);
+            
         });
-
-        page.removeEventListener("scroll", addBloomToContent);
+   
+        page.removeEventListener("scroll", addFadeToContent);
     }     
     return false;
 }
 
-page.addEventListener("scroll", addBloomToContent);
+page.addEventListener("scroll", addFadeToContent);
+
+
+//Preloader
+window.addEventListener("load", (e)=>{
+    const preloader = document.querySelector(".preloader");
+    setTimeout(function () {
+        // preloader.style.display = "none";   
+        preloader.classList.add("preloader_done");     
+    }, 500);
+});
