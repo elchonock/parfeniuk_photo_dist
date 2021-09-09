@@ -1,3 +1,6 @@
+// "use strict";
+
+
 // alert("Help me! I'm learning GULP!");
 
 // function sumInput() {
@@ -303,6 +306,213 @@
 //   console.log( unique(strings) ); // кришна, харе, :-O
 
 
+// Функции Конструкторы
+// const num = new Number(3);
+// console.log(num);
+// const fun = new Function(3);
+// console.log(fun);
+
+
+// function User(name, id) {
+//     this.name = name;
+//     this.id = id;
+//     this.human = true;    
+//     // this.hello = ()=>(`Hello ${this.name}`);    
+//     this.hello = function(){
+//         console.log(`Hello, ${this.name}`);
+//     };    
+// }
+
+// const ivan = new User("Ivan", 1);
+// const alex = new User("Aleksandr", 3);
+// const oleg = new User();
+// console.log(ivan.name);
+// console.log(ivan.id);
+// console.log(ivan.human);
+// console.log(ivan);
+// console.log(ivan.hello());
+// ivan.hello();
+
+// console.log(alex.name);
+// console.log(alex.id);
+// console.log(alex.human);
+// console.log(alex);
+// console.log(oleg.name);
+// console.log(oleg.id);
+// console.log(oleg.human);
+// console.log(oleg);
+
+
+
+// alex.exit();
+// User.prototype.exit = function () {
+//     console.log(`User ${this.name} logged out`);    
+// };
+
+// const lida = new User("Lida", 5);
+// lida.exit();
+// alex.exit();
+
+
+// //Date
+//1
+// function getLastDayOfMonth(year, month) {
+// //_____________________________
+//     // let date = new Date(year, month + 1, 0);
+//     // return date.getDate();
+// //________________________________________
+//     const date = new Date(year, month);
+//     let count = 0;
+//     while (date.getMonth() == month) {
+//         date.setDate(date.getDate() + 1);
+//         count++;
+//     }
+//     return count;
+// }
+
+// console.log(getLastDayOfMonth(2012, 1));
+// console.log(getLastDayOfMonth(2013, 1));
+// console.log(getLastDayOfMonth(2012, 0));
+
+// //2
+// function getSecondsToday() {
+//     const date  = new Date();
+
+//     return ((date.getHours()*60*60)+ date.getMinutes()*60 + date.getSeconds());
+    
+// }
+// console.log(getSecondsToday());
+
+// //3
+// function getSecondsToTomorrow(){
+//     const date = new Date();
+//     const tomorrow = new Date(date.getFullYear(), date.getMonth(), date.getDate()+1, 0, 0, 0);
+//     return Math.floor((tomorrow.getTime() - date.getTime())/1000);
+// }
+// console.log(getSecondsToTomorrow());
+
+// //4
+// function formatDate(date) {
+//     const delta = new Date() - date;
+//     if (delta < 1000){
+//         return "right now";
+//     } else if (delta >= 1000 && delta < 60000){
+//         return `${Math.floor(delta / 1000)} seconds ago`;
+//     } else if (delta >= 60000 && delta < 3600000) {
+//         return `${Math.floor(delta / 60000)} minutes ago`;
+//     } else {
+//         const day = date.getDate();
+//         const month =  date.getMonth() < 9 ? "0" + (date.getMonth() + 1): date.getMonth()+1;       
+//         const year = (String(date.getFullYear())).slice(2);
+//         let hours = date.getHours() < 10 ? "0" + date.getHours(): date.getHours();        
+//         const minutes = date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
+        
+
+//         return `${day}.${month}.${year} ${hours}:${minutes}`;
+//     }
+    
+// }
+// const date = new Date("2021-06-18");
+// const date2 = new Date("1915-11-18");
+// const date3 = new Date(2021, 8, 7, 22, 13);
+// console.log(formatDate(date));
+// console.log(formatDate(date2));
+// console.log(formatDate(date3));
+
+
+// // Map Set
+// // 1
+// function unique(arr) {
+//     const set = new Set(arr);
+//     return [...set];
+//     // return Array.from(new Set(arr));
+// }
+// const arr = ["Hare", "Krishna", "Hare", "Krishna",
+//   "Krishna", "Krishna", "Hare", "Hare", ":-O"
+// ];
+// console.log(unique(arr));
+
+
+// // 2
+// function aclean(arr) {
+//     let map = new Map();
+//     arr.forEach(i => { 
+//         map.set(i.toLowerCase().split("").sort().join(""), i);
+//     });
+//     return Array.from(new Set(map.values()));
+
+// }
+
+// let arr = ["nap", "teachers", "cheaters", "PAN", "ear", "era", "hectares", "era", "ear"];
+// console.log(aclean(arr)); // "nap,teachers,ear" or "PAN,cheaters,era"
+
+
+// // 3
+
+// const salaries = {
+//         "John": 100,
+//         "Pete": 300,
+//         "Mary": 250
+//     };
+
+// function  sumSalaries(salaries) {
+//     return Object.values(salaries).reduce((a,b)=>a+b, 0);    
+// }
+// console.log(sumSalaries(salaries));
+
+
+// // 4
+// let user = {
+//     name: 'John',
+//     age: 30,
+//     car: "bmw",
+//   };
+  
+// function count(obj) {
+//     // let count = 0;
+//     // Object.keys(obj).forEach(i=>count++);
+//     // return count;    
+//     return Object.keys(obj).length;
+// }
+
+// console.log( count(user) ); // 2
+
+
+
+// ДЕСТРУКТУРИЗАЦИЯ
+
+// // 1
+// let user = {
+//     name: "John",
+//     years: 30
+//   };
+// const {name, years:age, isAdmin=false} = user;
+// console.log(name);
+// console.log(age);
+// console.log(isAdmin);
+
+
+// // 2
+// let salaries = {
+//     "John": 100,
+//     "Pete": 300,
+//     "Mary": 250,
+//     "Garry": 750,
+//   };
+
+// function topSalary(salaries) {
+//     let maxSal = 0;
+//     let maxEmpl = null;
+//     for (let [key, value] of Object.entries(salaries)) {
+//         if (value > maxSal) {
+//             maxSal = value;
+//             maxEmpl = key;
+//         }
+//     }
+//     return maxEmpl; 
+// }
+
+// console.log(topSalary(salaries));
 
 
 function testWebP(callback) {
@@ -335,59 +545,60 @@ function ibg(){
 ibg();
 
 
-// Timer //disabled now
+// // Timer //disabled now
 
-const deadLine = "2021-09-30";
+// const deadLine = "2021-09-30";
 
-function getTimeRamaining(endtime) {
-    const t = Date.parse(endtime) - Date.parse(new Date());
-    const days = Math.floor(t / (1000*60*60*24));
-    const hours = Math.floor((t / (1000*60*60)) % 24);
-    const minutes = Math.floor((t / (1000*60)) % 60);
-    const seconds = Math.floor((t / (1000)) % 60);
+// function getTimeRamaining(endtime) {
+//     const t = Date.parse(endtime) - Date.parse(new Date());
+//     const days = Math.floor(t / (1000*60*60*24));
+//     const hours = Math.floor((t / (1000*60*60)) % 24);
+//     const minutes = Math.floor((t / (1000*60)) % 60);
+//     const seconds = Math.floor((t / (1000)) % 60);
 
-    return {
-        "total": t,
-        days,
-        hours,
-        minutes,
-        seconds,
-    };
+//     return {
+//         "total": t,
+//         days,
+//         hours,
+//         minutes,
+//         seconds,
+//     };
     
-}
+// }
 
-function addZero(num) {
-    if (num >= 0 && num < 10){
-        return `0${num}`;
-    } else {
-        return num;
-    }
+// function addZero(num) {
+//     if (num >= 0 && num < 10){
+//         return `0${num}`;
+//     } else {
+//         return num;
+//     }
     
-}
+// }
 
-function setClock(selector, endtime) {
-    const timer = document.querySelector(selector);
-    const days = timer.querySelector("#days");
-    const hours = timer.querySelector("#hours");
-    const minutes = timer.querySelector("#minutes");
-    const seconds = timer.querySelector("#seconds");
-    const timeInterval = setInterval(updateClock, 1000);
-    updateClock();
+// function setClock(selector, endtime) {
+//     const timer = document.querySelector(selector);
+//     const days = timer.querySelector("#days");
+//     const hours = timer.querySelector("#hours");
+//     const minutes = timer.querySelector("#minutes");
+//     const seconds = timer.querySelector("#seconds");
+//     const timeInterval = setInterval(updateClock, 1000);
+//     updateClock();
 
-    function updateClock() {
-        const t = getTimeRamaining(endtime);
-        days.innerHTML = addZero(t.days);
-        hours.innerHTML = addZero(t.hours);
-        minutes.innerHTML = addZero(t.minutes);
-        seconds.innerHTML = addZero(t.seconds);
-    }
+//     function updateClock() {
+//         const t = getTimeRamaining(endtime);
+//         days.innerHTML = addZero(t.days);
+//         hours.innerHTML = addZero(t.hours);
+//         minutes.innerHTML = addZero(t.minutes);
+//         seconds.innerHTML = addZero(t.seconds);
+//     }
  
-}
+// }
 
-setClock(".timer", deadLine);
-document.querySelector(".timer").style.display = "none";
+// setClock(".timer", deadLine);
+// document.querySelector(".timer").style.display = "none";
 
-
+//__________________________________________________________________________
+//______________________________________________________________________
 // Scroll
 
 const topBtn = document.querySelectorAll(".to_top");
@@ -399,7 +610,12 @@ let t;
 function scrolltop() { 
     let top = Math.max(document.body.scrollTop, page.scrollTop); 
     if (top > 0) { 
-        page.scrollTo(0, Math.floor(top/1.4)); 
+        // page.scrollTo(0, Math.floor(top/1.4)); 
+        page.scrollTo({
+            top: Math.floor(top/1.4),
+            behavior: "smooth"
+        });
+
         t = setTimeout(scrolltop, 30); 
     } else { 
         clearTimeout(t); 
@@ -431,11 +647,20 @@ function scrollToId(id) {
         if (document.documentElement.scrollHeight <= 1040) {
             const point = document.querySelector(id).getBoundingClientRect().top;            
             if (point > 800) { 
-                page.scrollTop = Math.floor((page.scrollTop + 10) * 1.25);
+                // page.scrollTop = Math.floor((page.scrollTop + 10) * 1.25);
+                page.scrollTo({
+                    top: Math.floor((page.scrollTop + 10) * 1.25),
+                    behavior: "smooth",
+
+                });
                 scrollToIdTimerId = setTimeout(scrollToIdFunc, 20); 
     
             } else if(point > 1 && point < 800){
-                page.scrollTop = Math.floor(page.scrollTop + 75);
+                // page.scrollTop = Math.floor(page.scrollTop + 75);
+                page.scrollTo({
+                    top: Math.floor(page.scrollTop + 75),
+                    behavior: "smooth",
+                });
                 scrollToIdTimerId = setTimeout(scrollToIdFunc, 30); 
     
             } else { 
@@ -445,10 +670,20 @@ function scrollToId(id) {
         } else {
             const point = document.querySelector(id).getBoundingClientRect().top - (document.documentElement.scrollHeight - 1040);
             if (point > 800) { 
-                page.scrollTop = Math.floor((page.scrollTop + 10) * 1.25);
+                // page.scrollTop = Math.floor((page.scrollTop + 10) * 1.25);
+                page.scrollTo({
+                    top: Math.floor((page.scrollTop + 10) * 1.25),
+                    behavior: "smooth",
+
+                });
                 scrollToIdTimerId = setTimeout(scrollToIdFunc, 20);
             } else if(point > 0 && point < 800){
-                page.scrollTop = Math.floor(page.scrollTop + 20);
+                // page.scrollTop = Math.floor(page.scrollTop + 20);
+                page.scrollTo({
+                    top: Math.floor(page.scrollTop + 20),
+                    behavior: "smooth",
+
+                });
                 scrollToIdTimerId = setTimeout(scrollToIdFunc, 10); 
             } else { 
                 clearTimeout(scrollToIdTimerId); 
@@ -625,3 +860,4 @@ window.addEventListener("load", (e)=>{
         preloader.classList.add("preloader_done");     
     }, 500);
 });
+
