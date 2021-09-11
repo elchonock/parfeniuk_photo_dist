@@ -1,3 +1,4 @@
+"use strict";
 // "use strict";
 
 
@@ -515,6 +516,7 @@
 // console.log(topSalary(salaries));
 
 
+
 function testWebP(callback) {
     let webP = new Image();
     webP.onload = webP.onerror = function () {
@@ -630,22 +632,22 @@ topBtn.forEach(item => {
         scrolltop();
     });
 });
-// // Scroll top touch
-// topBtn.forEach(item => {
-//     item.addEventListener("touchstart", (e) => {
-//         e.preventDefault();
-//         scrolltop();
-//     });
-// });
 
 
-//Scroll to Elements
+
+//------------------------------------------------------------------------------------
+//Scroll to Elements--------------------------------------------------------------------
 let scrollToIdTimerId;
+
+//Old Working Scroll Func--------------------------------------------------------------------
+//--------------------------------------------------------------------------------------
+// For chrome
+
 function scrollToId(id) {
     scrollToIdFunc();
     function scrollToIdFunc() {
         if (document.documentElement.scrollHeight <= 1040) {
-            const point = document.querySelector(id).getBoundingClientRect().top;            
+            const point = document.querySelector(id).getBoundingClientRect().top - 80;            
             if (point > 800) { 
                 // page.scrollTop = Math.floor((page.scrollTop + 10) * 1.25);
                 page.scrollTo({
@@ -658,10 +660,10 @@ function scrollToId(id) {
             } else if(point > 1 && point < 800){
                 // page.scrollTop = Math.floor(page.scrollTop + 75);
                 page.scrollTo({
-                    top: Math.floor(page.scrollTop + 75),
+                    top: Math.floor(page.scrollTop + 10),
                     behavior: "smooth",
                 });
-                scrollToIdTimerId = setTimeout(scrollToIdFunc, 30); 
+                scrollToIdTimerId = setTimeout(scrollToIdFunc, 5); 
     
             } else { 
                 clearTimeout(scrollToIdTimerId); 
@@ -692,25 +694,50 @@ function scrollToId(id) {
         }
     }  
 }
+
+//-------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------
+
+
+
+
 //Scroll click
 const navElements = document.querySelectorAll("[data-nav]");
-navElements.forEach(elem => {
-    elem.addEventListener("click", (e) => {
-        e.preventDefault();
-        const idToScrollTo = "#" + e.target.getAttribute("data-nav");
-        scrollToId(idToScrollTo);
-    });
-});
 
-// //Scroll touch
+//old-----------------------------------------------
 // navElements.forEach(elem => {
-//     elem.addEventListener("touchstart", (e) => {
+//     elem.addEventListener("click", (e) => {
 //         e.preventDefault();
-//         e.stopPropagation();
-//         const idToScrollTo = "#" + e.target.getAttribute("data-nav");
+//         const idToScrollTo = e.target.getAttribute("data-nav");
 //         scrollToId(idToScrollTo);
 //     });
 // });
+//----------------------------------------------------------
+
+
+navElements.forEach(elem => {
+    elem.addEventListener("click", (e) => {
+        e.preventDefault();
+        const elemScrollTo = document.querySelector(e.target.getAttribute("data-nav"));
+        const idToScrollTo = e.target.getAttribute("data-nav");
+        const point = elemScrollTo.getBoundingClientRect().top + page.scrollTop - document.querySelector("header").offsetHeight;
+
+        if (navigator.userAgent.match(/Chrome/i)){
+            scrollToId(idToScrollTo);
+
+        } else {
+            page.scrollTo({
+                top: point,
+                behavior: "smooth",
+            });
+
+        }
+    });
+});
+
+
+
+
 
 
 // Slider and Open / Close Photo
@@ -743,9 +770,10 @@ function photos() {
 
 // open-close photo____________________
     photoContainer.addEventListener("click", (event) => {
-        event.preventDefault();
+        // event.preventDefault();
         //Open photo
         if (event.target && event.target.classList.contains("content_row_item")){
+            event.preventDefault();
             next.style.display = "block";
             prev.style.display = "block";
             photoPopup.style.display = "flex";
@@ -852,7 +880,8 @@ function addFadeToContent() {
 page.addEventListener("scroll", addFadeToContent);
 
 
-//Preloader
+//Preloader______________________________________________________
+//_______________________________________________________________
 window.addEventListener("load", (e)=>{
     const preloader = document.querySelector(".preloader");
     setTimeout(function () {
@@ -860,4 +889,47 @@ window.addEventListener("load", (e)=>{
         preloader.classList.add("preloader_done");     
     }, 500);
 });
+
+
+
+//Burger__________________________________________________________
+//________________________________________________________________
+
+const burger = document.querySelector(".burger");
+const menuBody = document.querySelector(".menu_body");
+burger.addEventListener("click", showBurgerMenu);
+menuBody.addEventListener("click", showBurgerMenu);
+
+
+function showBurgerMenu() {
+    menuBody.classList.toggle("_active");
+}
+
+
+
+//IsMobile
+const isMobile = {
+    Android: () => navigator.userAgent.match(/Android/i),
+    BlackBerry: () => navigator.userAgent.match(/BlackBerry/i),
+    iOS: () => navigator.userAgent.match(/iPhone|iPad|iPod/i),
+    Opera: () => navigator.userAgent.match(/Opera Mini/i),
+    Windows: () => navigator.userAgent.match(/IEMobile/i),
+    any: () => {
+        return (
+        isMobile.Android() ||
+        isMobile.BlackBerry() ||
+        isMobile.iOS() ||
+        isMobile.Opera() ||
+        isMobile.Windows()
+        );
+    }
+};
+
+if (isMobile.any()) {
+    document.body.classList.add("_touch");
+} else {
+    document.body.classList.add("_pc");
+}
+
+
 
