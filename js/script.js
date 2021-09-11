@@ -747,16 +747,23 @@ function photos() {
     const slides = document.querySelectorAll(".content_row_item");
     const prev = document.querySelector(".prev");
     const next = document.querySelector(".next");
+    next.style = "-webkit-tap-highlight-color: transparent;";
+    prev.style = "-webkit-tap-highlight-color: transparent;";
+    slides.forEach(i=>i.style = "-webkit-tap-highlight-color: transparent;");
 
     const photoPopup = document.createElement("div");
     photoPopup.classList.add("popup_photo");
+    photoPopup.style = "-webkit-tap-highlight-color: transparent;";
 
     const bigPhoto = document.createElement("img");
     const bigPhotoWrapper = document.createElement("div");
     bigPhotoWrapper.classList.add("bigPhotoWrapper");
+    bigPhotoWrapper.style = "-webkit-tap-highlight-color: transparent;";
+    bigPhoto.style = "-webkit-tap-highlight-color: transparent;";
 
     const closeX = document.createElement("div");
     closeX.classList.add("closeX");
+    closeX.style = "-webkit-tap-highlight-color: transparent;";
 
     photoContainer.appendChild(photoPopup);
     photoPopup.appendChild(bigPhotoWrapper);
