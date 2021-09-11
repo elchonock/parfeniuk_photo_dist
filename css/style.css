@@ -784,6 +784,7 @@ div.img_before:not(hover) img.footer_second_icon {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .popup_photo img {
@@ -795,6 +796,7 @@ div.img_before:not(hover) img.footer_second_icon {
   max-height: 90vh;
   z-index: 100;
   position: relative;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .bigPhotoWrapper {
@@ -811,6 +813,7 @@ div.img_before:not(hover) img.footer_second_icon {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .next {
@@ -823,6 +826,7 @@ div.img_before:not(hover) img.footer_second_icon {
   right: 0;
   top: 0;
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .next::before,
@@ -860,6 +864,7 @@ div.img_before:not(hover) img.footer_second_icon {
   left: 0;
   top: 0;
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .prev::before,
@@ -895,6 +900,7 @@ div.img_before:not(hover) img.footer_second_icon {
   right: -45px;
   z-index: 250;
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .closeX::before,
