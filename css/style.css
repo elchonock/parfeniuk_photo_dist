@@ -1804,54 +1804,6 @@ img {
   }
 }
 
-@media (max-width: 768px) {
-  .content_row_item {
-    -webkit-box-flex: 1;
-        -ms-flex: 1 1 50%;
-            flex: 1 1 50%;
-    min-width: 140px;
-    min-height: 235px;
-    max-width: 100%;
-    height: 75.1879699248vw;
-  }
-
-  .content_row_item.i1 {
-    -webkit-box-flex: 1;
-        -ms-flex: 1 0 63%;
-            flex: 1 0 63%;
-  }
-
-  .content_row_item.i2 {
-    -webkit-box-flex: 1;
-        -ms-flex: 1 0 33%;
-            flex: 1 0 33%;
-  }
-
-  .content_row_item.i3 {
-    -webkit-box-flex: 1;
-        -ms-flex: 1 0 33%;
-            flex: 1 0 33%;
-  }
-
-  .content_row_item.i4 {
-    -webkit-box-flex: 1;
-        -ms-flex: 1 0 63%;
-            flex: 1 0 63%;
-  }
-
-  .content_row_item.i7 {
-    -webkit-box-flex: 1;
-        -ms-flex: 1 1 63%;
-            flex: 1 1 63%;
-  }
-
-  .content_row_item.i8 {
-    -webkit-box-flex: 1;
-        -ms-flex: 1 1 33%;
-            flex: 1 1 33%;
-  }
-}
-
 @media (max-width: 767px) {
   .menu .burger {
     display: block;
@@ -1986,6 +1938,56 @@ img {
 
   .about_text_text {
     font-size: 14px;
+  }
+
+  .slider {
+    outline: none;
+  }
+
+  .content_row_item {
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 50%;
+            flex: 1 1 50%;
+    min-width: 140px;
+    min-height: 235px;
+    max-width: 100%;
+    height: 75.1879699248vw;
+  }
+
+  .content_row_item.i1 {
+    -webkit-box-flex: 1;
+        -ms-flex: 1 0 63%;
+            flex: 1 0 63%;
+  }
+
+  .content_row_item.i2 {
+    -webkit-box-flex: 1;
+        -ms-flex: 1 0 33%;
+            flex: 1 0 33%;
+  }
+
+  .content_row_item.i3 {
+    -webkit-box-flex: 1;
+        -ms-flex: 1 0 33%;
+            flex: 1 0 33%;
+  }
+
+  .content_row_item.i4 {
+    -webkit-box-flex: 1;
+        -ms-flex: 1 0 63%;
+            flex: 1 0 63%;
+  }
+
+  .content_row_item.i7 {
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 63%;
+            flex: 1 1 63%;
+  }
+
+  .content_row_item.i8 {
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 33%;
+            flex: 1 1 33%;
   }
 
   .contact_img {
