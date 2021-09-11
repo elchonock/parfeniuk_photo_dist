@@ -722,7 +722,8 @@ navElements.forEach(elem => {
             e.preventDefault();
             const elemScrollTo = document.querySelector(e.target.getAttribute("data-nav"));
             const idToScrollTo = e.target.getAttribute("data-nav");
-            const point = elemScrollTo.getBoundingClientRect().top + page.scrollTop - document.querySelector("header").offsetHeight;
+            // const point = elemScrollTo.getBoundingClientRect().top + page.scrollTop - document.querySelector("header").offsetHeight;
+            const point = elemScrollTo.getBoundingClientRect().top + page.scrollTop;
             if (navigator.userAgent.match(/Chrome/i)){
                 scrollToId(idToScrollTo);
     
