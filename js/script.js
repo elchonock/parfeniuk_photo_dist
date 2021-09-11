@@ -648,7 +648,7 @@ function scrollToId(id) {
     scrollToIdFunc();
     function scrollToIdFunc() {
         if (document.documentElement.scrollHeight <= 1040) {
-            const point = document.querySelector(id).getBoundingClientRect().top - 80;            
+            const point = document.querySelector(id).getBoundingClientRect().top;            
             if (point > 800) { 
                 // page.scrollTop = Math.floor((page.scrollTop + 10) * 1.25);
                 page.scrollTo({
