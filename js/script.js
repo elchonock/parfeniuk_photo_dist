@@ -628,11 +628,12 @@ function scrolltop() {
 // Scroll top click
 topBtn.forEach(item => {
     item.addEventListener("click", (e) => {
+        if (!document.body.classList.contains("_touch")){
         e.preventDefault();
         scrolltop();
+        }
     });
 });
-
 
 
 //------------------------------------------------------------------------------------
@@ -717,24 +718,25 @@ const navElements = document.querySelectorAll("[data-nav]");
 
 navElements.forEach(elem => {
     elem.addEventListener("click", (e) => {
-        e.preventDefault();
-        const elemScrollTo = document.querySelector(e.target.getAttribute("data-nav"));
-        const idToScrollTo = e.target.getAttribute("data-nav");
-        const point = elemScrollTo.getBoundingClientRect().top + page.scrollTop - document.querySelector("header").offsetHeight;
-
-        if (navigator.userAgent.match(/Chrome/i)){
-            scrollToId(idToScrollTo);
-
-        } else {
-            page.scrollTo({
-                top: point,
-                behavior: "smooth",
-            });
-
+        if (!document.body.classList.contains("_touch")){
+            e.preventDefault();
+            const elemScrollTo = document.querySelector(e.target.getAttribute("data-nav"));
+            const idToScrollTo = e.target.getAttribute("data-nav");
+            const point = elemScrollTo.getBoundingClientRect().top + page.scrollTop - document.querySelector("header").offsetHeight;
+            if (navigator.userAgent.match(/Chrome/i)){
+                scrollToId(idToScrollTo);
+    
+            } else {
+                page.scrollTo({
+                    top: point,
+                    behavior: "smooth",
+                });
+            }
         }
+
+
     });
 });
-
 
 
 
@@ -938,5 +940,27 @@ if (isMobile.any()) {
     document.body.classList.add("_pc");
 }
 
+
+//Hide Header
+
+page.addEventListener("scroll", e=>{
+    const social = document.querySelector(".social_media_panel");
+    const header = document.querySelector("#top");
+    const headerMB = document.querySelector(".menu_body");
+
+
+    if (page.scrollTop > 80){
+        if (document.body.classList.contains("_touch")){
+            social.classList.add("hidden_head");
+        }
+        header.classList.add("hidden_head");
+        headerMB.classList.add("hidden_head");
+    } else {
+        headerMB.classList.remove("hidden_head");
+        header.classList.remove("hidden_head");
+        social.classList.remove("hidden_head");
+    }
+
+});
 
 
