@@ -943,25 +943,54 @@ if (isMobile.any()) {
 
 
 //Hide Header
+const social = document.querySelector(".social_media_panel");
+const header = document.querySelector("#top");
+const headerMB = document.querySelector(".menu_body");
+// page.addEventListener("scroll", e=>{
+//     const social = document.querySelector(".social_media_panel");
+//     const header = document.querySelector("#top");
+//     const headerMB = document.querySelector(".menu_body");
 
-page.addEventListener("scroll", e=>{
-    const social = document.querySelector(".social_media_panel");
-    const header = document.querySelector("#top");
-    const headerMB = document.querySelector(".menu_body");
+
+//     if (page.scrollTop > 80){
+//         if (document.documentElement.clientWidth < 767){
+//             social.classList.add("hidden_head");
+//         }
+//         header.classList.add("hidden_head");
+//         headerMB.classList.add("hidden_head");
+//     } else {
+//         headerMB.classList.remove("hidden_head");
+//         header.classList.remove("hidden_head");
+//         social.classList.remove("hidden_head");
+//     }
+
+// });
 
 
-    if (page.scrollTop > 80){
-        if (document.body.classList.contains("_touch")){
+//Show Header if scroll up
+
+let lastScroll = 0;
+const defaultOffset = 80;
+const scrollPos = ()=> page.scrollTop;
+const containHide = () => header.classList.contains('hidden_head');
+
+page.addEventListener('scroll', () => {
+    if(scrollPos() > lastScroll && !containHide() && scrollPos() > defaultOffset) {
+        //scroll down
+        if (document.documentElement.clientWidth < 767){
             social.classList.add("hidden_head");
         }
-        header.classList.add("hidden_head");
+
+        header.classList.add('hidden_head');
         headerMB.classList.add("hidden_head");
-    } else {
-        headerMB.classList.remove("hidden_head");
-        header.classList.remove("hidden_head");
+    }
+    else if(scrollPos() < lastScroll && containHide()){
+        //scroll up
+        header.classList.remove('hidden_head');
         social.classList.remove("hidden_head");
+        headerMB.classList.remove("hidden_head");
     }
 
-});
-
+    lastScroll = scrollPos();
+}) 
 

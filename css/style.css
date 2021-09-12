@@ -484,9 +484,9 @@ h6 {
 
 .hidden_head {
   top: -100%;
-  -webkit-transition: top ease 0.3s 0s;
-  -o-transition: top ease 0.3s 0s;
-  transition: top ease 0.3s 0s;
+  -webkit-transition: top ease 0.7s 0s;
+  -o-transition: top ease 0.7s 0s;
+  transition: top ease 0.7s 0s;
 }
 
 .footer {
@@ -2253,7 +2253,7 @@ img {
 
   .contact_form_form_area {
     width: 100%;
-    margin: 0 auto;
+    margin: 5px auto;
   }
 
   .contact_area {
