@@ -1273,10 +1273,8 @@ div.img_before:not(hover) img.footer_second_icon {
 }
 
 .popup__window._active .form {
-  top: 50%;
-  -webkit-transform: translate(0, -50%);
-      -ms-transform: translate(0, -50%);
-          transform: translate(0, -50%);
+  top: 0;
+  margin: 5% auto;
 }
 
 .form {
