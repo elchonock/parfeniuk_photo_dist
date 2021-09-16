@@ -516,6 +516,9 @@
 // console.log(topSalary(salaries));
 
 
+document.addEventListener("DOMContentLoaded", function() {
+
+
 
 function testWebP(callback) {
     let webP = new Image();
@@ -716,6 +719,7 @@ const navElements = document.querySelectorAll("[data-nav]");
 //----------------------------------------------------------
 
 
+//New Scroll for other browsers
 navElements.forEach(elem => {
     elem.addEventListener("click", (e) => {
         if (!document.body.classList.contains("_touch")){
@@ -742,7 +746,7 @@ navElements.forEach(elem => {
 
 
 
-
+//_____________________________________________________________________
 // Slider and Open / Close Photo
 function photos() {
     let slideIndex = 1;
@@ -892,13 +896,13 @@ page.addEventListener("scroll", addFadeToContent);
 
 //Preloader______________________________________________________
 //_______________________________________________________________
-window.addEventListener("load", (e)=>{
-    const preloader = document.querySelector(".preloader");
-    setTimeout(function () {
-        // preloader.style.display = "none";   
-        preloader.classList.add("preloader_done");     
-    }, 500);
-});
+// window.addEventListener("load", (e)=>{
+//     const preloader = document.querySelector(".preloader");
+//     setTimeout(function () {
+//         // preloader.style.display = "none";   
+//         preloader.classList.add("preloader_done");     
+//     }, 500);
+// });
 
 
 
@@ -942,6 +946,8 @@ if (isMobile.any()) {
 }
 
 
+
+//_______________________________________________________________________________
 //Hide Header
 const social = document.querySelector(".social_media_panel");
 const header = document.querySelector("#top");
@@ -994,3 +1000,42 @@ page.addEventListener('scroll', () => {
     lastScroll = scrollPos();
 }) 
 
+
+//____________________________________________________________________
+//Form________________________________________________________________
+//Show popup form--------------------------------------------------
+const popupForm = document.querySelectorAll("._popupForm");
+const popupsButton = document.querySelectorAll("[data-popup]");
+
+popupsButton.forEach(btn=>{
+    btn.addEventListener("click", showPopupForm);
+
+});
+
+function showPopupForm(e) {
+    if (e.target.getAttribute("data-popup") == "_popupForm") {
+        e.preventDefault();
+        popupForm.forEach(form=>{
+            form.classList.add("_active");
+        });
+    }   
+}
+//Close popup form---------------------------------------------
+
+popupForm.forEach(form =>{
+    form.addEventListener("click", e=>{
+        if (e.target && e.target.classList.contains("popup__window") && form.classList.contains("_active")){
+            form.classList.remove("_active");
+        } else if (e.target && e.target.classList.contains("closeForm") && form.classList.contains("_active")) {
+            form.classList.remove("_active");
+        }
+    
+    });
+
+});  
+
+
+
+
+
+});
