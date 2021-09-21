@@ -1555,6 +1555,75 @@ div.img_before:not(hover) img.footer_second_icon {
   color: goldenrod;
 }
 
+/* form---validation -------------------------------------*/
+
+.form__input._error {
+  -webkit-box-shadow: 0 0 15px red;
+          box-shadow: 0 0 15px red;
+}
+
+.checkbox._error .checkbox__label::before {
+  -webkit-box-shadow: 0 0 15px red;
+          box-shadow: 0 0 15px red;
+}
+
+/* ------------------------------------------------- */
+
+.popup__status {
+  display: none;
+}
+
+.popup__status._active {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(204, 204, 204, 0.5);
+  z-index: 101;
+  cursor: pointer;
+}
+
+.status__failure,
+.status__success {
+  min-width: 300px;
+  width: 400px;
+  height: 250px;
+  background-color: #f1eeee;
+  position: relative;
+  margin: 0 auto;
+  top: 30%;
+  -webkit-box-shadow: 0 5px 25px #979796;
+          box-shadow: 0 5px 25px #979796;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 33px;
+  font-family: EBGaramond, serif;
+  font-weight: 700;
+  color: #122427;
+  line-height: 124%;
+  cursor: initial;
+  visibility: hidden;
+}
+
+.status__failure._active,
+.status__success._active {
+  top: 30%;
+  visibility: visible;
+}
+
+.popup__status span {
+  width: 100%;
+  display: block;
+  top: 50%;
+  -webkit-transform: translate(0%, -50%);
+      -ms-transform: translate(0%, -50%);
+          transform: translate(0%, -50%);
+  position: relative;
+}
+
 .preloader {
   position: fixed;
   width: 100%;
