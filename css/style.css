@@ -1164,6 +1164,52 @@ div.img_before:not(hover) img.footer_second_icon {
   margin-bottom: 15px;
 }
 
+.social_media_panel svg .st0 {
+  fill: #E0E0E2;
+  -webkit-transition: all ease 1s 0s;
+  -o-transition: all ease 1s 0s;
+  transition: all ease 1s 0s;
+}
+
+.social_media_panel svg .st1,
+.social_media_panel svg .st3 {
+  fill: #fff;
+  -webkit-transition: all ease 1s 0s;
+  -o-transition: all ease 1s 0s;
+  transition: all ease 1s 0s;
+}
+
+.social_media_panel svg:hover .st0 {
+  fill: #267780;
+  -webkit-transition: all ease 0.7s 0s;
+  -o-transition: all ease 0.7s 0s;
+  transition: all ease 0.7s 0s;
+}
+
+.social_media_panel svg:hover {
+  -webkit-box-shadow: 0 0 3px #17474d;
+          box-shadow: 0 0 3px #17474d;
+  -webkit-transition: all ease 0.7s 0s;
+  -o-transition: all ease 0.7s 0s;
+  transition: all ease 0.7s 0s;
+  border-radius: 50%;
+  -webkit-transform: scale(1.1);
+      -ms-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.social_media_panel svg {
+  width: 35px;
+  height: 35px;
+  -webkit-transform: scale(1);
+      -ms-transform: scale(1);
+          transform: scale(1);
+  -webkit-transition: all ease 0.7s 0s;
+  -o-transition: all ease 0.7s 0s;
+  transition: all ease 0.7s 0s;
+  border-radius: 50%;
+}
+
 .social_media_panel.hidden_head {
   top: -100%;
   -webkit-transition: top ease 0.3s 0s;
