@@ -1046,6 +1046,11 @@ h6 {
   }
 }
 
+body._touch .bigPhotoWrapper img {
+  max-width: 100vw;
+  max-height: 90vh;
+}
+
 .static_bg_photo {
   position: relative;
   -webkit-box-flex: 1;
