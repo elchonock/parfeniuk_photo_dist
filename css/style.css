@@ -971,21 +971,21 @@ h6 {
 }
 
 @-webkit-keyframes fadeOne {
-  from {
+  0% {
     opacity: 0.2;
   }
 
-  to {
+  100% {
     opacity: 1;
   }
 }
 
 @keyframes fadeOne {
-  from {
+  0% {
     opacity: 0.2;
   }
 
-  to {
+  100% {
     opacity: 1;
   }
 }
@@ -1019,30 +1019,34 @@ h6 {
 }
 
 .fadeThree {
-  -webkit-animation: fadeThree 1s ease-in;
-          animation: fadeThree 1s ease-in;
-  -webkit-transition: all linear 1s;
-  -o-transition: all linear 1s;
-  transition: all linear 1s;
+  -webkit-animation: fadeThree 1s ease-in-out;
+          animation: fadeThree 1s ease-in-out;
+  -webkit-transition: all ease-in-out 1s;
+  -o-transition: all ease-in-out 1s;
+  transition: all ease-in-out 1s;
 }
 
 @-webkit-keyframes fadeThree {
-  from {
-    opacity: 0.2;
+  0% {
+    -webkit-transform: translateX(-20%);
+            transform: translateX(-20%);
   }
 
-  to {
-    opacity: 1;
+  100% {
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
   }
 }
 
 @keyframes fadeThree {
-  from {
-    opacity: 0.2;
+  0% {
+    -webkit-transform: translateX(-20%);
+            transform: translateX(-20%);
   }
 
-  to {
-    opacity: 1;
+  100% {
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
   }
 }
 
@@ -1102,6 +1106,49 @@ body._touch .bigPhotoWrapper img {
   margin: 0;
   line-height: normal;
   opacity: 0;
+  -webkit-transition: ease 1s all;
+  -o-transition: ease 1s all;
+  transition: ease 1s all;
+}
+
+.bloom {
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-name: bloom;
+          animation-name: bloom;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-transition: ease 1s all;
+  -o-transition: ease 1s all;
+  transition: ease 1s all;
+}
+
+@-webkit-keyframes bloom {
+  0% {
+    opacity: 0;
+    position: absolute;
+    bottom: -50px;
+  }
+
+  100% {
+    opacity: 1;
+    bottom: 0;
+    position: relative;
+  }
+}
+
+@keyframes bloom {
+  0% {
+    opacity: 0;
+    position: absolute;
+    bottom: -50px;
+  }
+
+  100% {
+    opacity: 1;
+    bottom: 0;
+    position: relative;
+  }
 }
 
 .contact {
@@ -1943,46 +1990,6 @@ section.text_par {
 
 img {
   max-width: 100%;
-}
-
-.bloom {
-  -webkit-animation-duration: 1s;
-          animation-duration: 1s;
-  -webkit-animation-name: bloom;
-          animation-name: bloom;
-  -webkit-animation-timing-function: linear;
-          animation-timing-function: linear;
-  -webkit-transition: ease 1s all;
-  -o-transition: ease 1s all;
-  transition: ease 1s all;
-}
-
-@-webkit-keyframes bloom {
-  0% {
-    opacity: 0;
-    position: absolute;
-    bottom: -50px;
-  }
-
-  100% {
-    opacity: 1;
-    bottom: 0;
-    position: relative;
-  }
-}
-
-@keyframes bloom {
-  0% {
-    opacity: 0;
-    position: absolute;
-    bottom: -50px;
-  }
-
-  100% {
-    opacity: 1;
-    bottom: 0;
-    position: relative;
-  }
 }
 
 @media (min-width: 992px) {
