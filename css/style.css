@@ -822,7 +822,7 @@ body._touch .bigPhotoWrapper img {
 }
 
 .no-webp .static_bg_photo_row_photo {
-  background: 50% 50%/cover fixed url(../img/nikita_i_listok1.jpg) no-repeat; }
+  background: 50% 50%/cover fixed url(../img/nikita_i_listok_bg.jpg) no-repeat; }
 
 .static_bg_photo_row_photo {
   -webkit-box-flex: 1;
@@ -1595,7 +1595,7 @@ body {
 }
 
 .no-webp section.new_main {
-  background-image: url(../img/alena1.jpg); }
+  background-image: url(../img/alena_main.jpg); }
 
 section.new_main {
   position: relative;
@@ -1930,7 +1930,7 @@ img {
   }
 
   section.text_par {
-    top: 8vh;
+    top: 12vh;
   }
 
   section.new_main {
@@ -2103,6 +2103,9 @@ img {
             flex: 1 1 33%;
   }
 
+  .no-webp .static_bg_photo_row_photo {
+    background: 50% 50%/cover fixed url(../img/alena_main.jpg) no-repeat; }
+
   .contact_img {
     display: none;
   }
@@ -2147,6 +2150,9 @@ img {
   .social_media_panel_list_item svg .st0 {
     fill: #92B8BD;
   }
+
+  .no-webp section.new_main {
+    background-image: url(../img/nikita_i_listok_bg.jpg); }
 }
 
 @media (max-width: 639px) {
@@ -2373,6 +2379,16 @@ img {
   }
 }
 
-.webp .static_bg_photo_row_photo { background: 50% 50%/cover fixed url(../img/nikita_i_listok1.webp) no-repeat; }
+.webp .static_bg_photo_row_photo { background: 50% 50%/cover fixed url(../img/nikita_i_listok_bg.webp) no-repeat; }
 
-.webp section.new_main { background-image: url(../img/alena1.webp); }
+.webp section.new_main { background-image: url(../img/alena_main.webp); }
+
+@media (max-width: 767px) {
+
+  .webp .static_bg_photo_row_photo { background: 50% 50%/cover fixed url(../img/alena_main.webp) no-repeat; }
+}
+
+@media (max-width: 767px) {
+
+  .webp section.new_main { background-image: url(../img/nikita_i_listok_bg.webp); }
+}
