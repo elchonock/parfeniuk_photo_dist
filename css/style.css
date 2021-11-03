@@ -794,6 +794,16 @@ body._touch .bigPhotoWrapper img {
   height: 898px;
 }
 
+.no-webp .static_bg_photo_row_photo {
+  background: 50% 50%/cover fixed url(../img/nikita_i_listok_bg.jpg) no-repeat; }
+
+.static_bg_photo_row_photo {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 100%;
+          flex: 1 1 100%;
+  position: relative;
+}
+
 .static_bg_photo_row_container_H4 {
   width: 100vw;
 }
@@ -816,67 +826,39 @@ body._touch .bigPhotoWrapper img {
   margin: 0;
   line-height: normal;
   opacity: 0;
-  -webkit-transition: ease 1s all;
-  -o-transition: ease 1s all;
-  transition: ease 1s all;
-}
-
-.static_bg_photo_row_photo {
-  -webkit-box-flex: 1;
-      -ms-flex: 1 1 100%;
-          flex: 1 1 100%;
-  position: relative;
-}
-
-.no-webp .static_bg_photo_row_photo::before {
-  background: 50% 50%/cover fixed url(../img/nikita_i_listok_bg.jpg) no-repeat; }
-
-.static_bg_photo_row_photo::before {
-  content: "";
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
   position: absolute;
 }
 
 .bloom {
-  -webkit-animation-duration: 1s;
-          animation-duration: 1s;
-  -webkit-animation-name: bloom;
-          animation-name: bloom;
-  -webkit-animation-timing-function: linear;
-          animation-timing-function: linear;
-  -webkit-transition: ease 1s all;
-  -o-transition: ease 1s all;
-  transition: ease 1s all;
+  -webkit-animation: bloom 1.5s ease-out;
+          animation: bloom 1.5s ease-out;
 }
 
 @-webkit-keyframes bloom {
   0% {
     opacity: 0;
-    position: absolute;
-    bottom: -50px;
+    -webkit-transform: translateY(100px);
+            transform: translateY(100px);
   }
 
   100% {
     opacity: 1;
-    bottom: 0;
-    position: relative;
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
   }
 }
 
 @keyframes bloom {
   0% {
     opacity: 0;
-    position: absolute;
-    bottom: -50px;
+    -webkit-transform: translateY(100px);
+            transform: translateY(100px);
   }
 
   100% {
     opacity: 1;
-    bottom: 0;
-    position: relative;
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
   }
 }
 
@@ -1770,7 +1752,7 @@ img {
   }
 
   .static_bg_photo_row_H4 {
-    margin: 0 0 65px 0;
+    margin: 0 0 65px 10px;
     left: 0;
   }
 
@@ -2112,8 +2094,41 @@ img {
             flex: 1 1 33%;
   }
 
-  .no-webp .static_bg_photo_row_photo::before {
-    background: 35% 50%/cover fixed url(../img/alena_main.jpg) no-repeat; }
+  .static_bg_photo_row_photo {
+    background: none !important;
+  }
+
+  .no-webp .static_bg_photo {
+    background-image: url(../img/alena_main.jpg); }
+
+  .static_bg_photo {
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-origin: border-box;
+    -webkit-transform: translateZ(-1.6px) scale(2.8);
+            transform: translateZ(-1.6px) scale(2.8);
+    /* Force the background image to fill the whole element. */
+    background-size: cover;
+    /* Keep the image from overlapping sibling elements. */
+    width: 100%;
+    -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+    height: 100%;
+    max-height: 1250px;
+    min-height: 100vh;
+  }
+
+  .static_bg_photo_row_container_H4 {
+    -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+    -webkit-transform: translateZ(0.5px) scale(0.8);
+            transform: translateZ(0.5px) scale(0.8);
+  }
+
+  .static_bg_photo_row_H4 {
+    margin: 0px 10px -100px 10px;
+    padding: 5px;
+  }
 
   .contact_img {
     display: none;
@@ -2172,11 +2187,6 @@ img {
   .static_bg_photo_row {
     height: 698px;
     min-height: 698px;
-  }
-
-  .static_bg_photo_row_H4 {
-    padding: 10px;
-    margin: 0 0 40px 0;
   }
 
   .static_bg_photo_row_H4_text {
@@ -2253,10 +2263,6 @@ img {
     min-height: 558px;
   }
 
-  .static_bg_photo_row_H4 {
-    margin: 0 0 25px 0;
-  }
-
   .static_bg_photo_row_H4_text {
     padding: 7px;
     font-size: 32px;
@@ -2272,10 +2278,6 @@ img {
 @media (max-width: 450px) {
   .static_bg_photo_row_H4_text {
     font-size: 26px;
-  }
-
-  .static_bg_photo_row_H4 {
-    margin: 0 0 10px 0;
   }
 }
 
@@ -2298,10 +2300,6 @@ img {
     font-size: 21px;
     padding: 5px;
     line-height: 150%;
-  }
-
-  .static_bg_photo_row_H4 {
-    margin: 0 0 -5px 0;
   }
 
   .static_bg_photo {
@@ -2328,10 +2326,6 @@ img {
   .static_bg_photo_row_H4_text {
     font-size: 19px;
     padding: 5px;
-  }
-
-  .static_bg_photo_row_H4 {
-    margin: 0 0 -15px 0;
   }
 }
 
@@ -2388,13 +2382,13 @@ img {
   }
 }
 
-.webp .static_bg_photo_row_photo::before { background: 50% 50%/cover fixed url(../img/nikita_i_listok_bg.webp) no-repeat; }
+.webp .static_bg_photo_row_photo { background: 50% 50%/cover fixed url(../img/nikita_i_listok_bg.webp) no-repeat; }
 
 .webp section.new_main { background-image: url(../img/alena_main.webp); }
 
 @media (max-width: 767px) {
 
-  .webp .static_bg_photo_row_photo::before { background: 35% 50%/cover fixed url(../img/alena_main.webp) no-repeat; }
+  .webp .static_bg_photo { background-image: url(../img/alena_main.webp); }
 }
 
 @media (max-width: 767px) {
